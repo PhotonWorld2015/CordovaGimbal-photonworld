@@ -89,7 +89,7 @@
 //     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: sighting.beacon.name message:@"didReceiveBeaconSighting" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //     [alert show];
 
-    if (([sighting.beacon.name isEqualToString:@"PHTNCHEBLK3"] || [sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"]) && !(rssi < -70)) {
+    if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"]) && !(rssi < -70)) {
         
         if (!self.checkInAlertDisplayed) {
             
