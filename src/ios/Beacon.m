@@ -28,10 +28,7 @@
 
 - (void)placeManager:(GMBLPlaceManager *)manager didBeginVisit:(GMBLVisit *)visit
 {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"didBeginVisit" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    
+      
     if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PHTNCHEBLK3"] ) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -86,9 +83,6 @@
     
     NSInteger rssi = sighting.RSSI;
     //NSLog(@"%zd",sighting.RSSI);
-//     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: sighting.beacon.name message:@"didReceiveBeaconSighting" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//     [alert show];
-
     if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"]) && !(rssi < -70)) {
         
         if (!self.checkInAlertDisplayed) {
@@ -113,11 +107,7 @@
 }
 
 - (void)initializeBeacon:(CDVInvokedUrlCommand*)command
-{
-    
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"initializeBeacon" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    
+{  
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CheckInCallback) name:@"CheckInCallback" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DemoCallback) name:@"DemoInCallback" object:nil];
     
