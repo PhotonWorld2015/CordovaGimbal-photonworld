@@ -86,7 +86,7 @@
     
     NSInteger rssi = sighting.RSSI;
     //NSLog(@"%zd",sighting.RSSI);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"didReceiveBeaconSighting" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: sighting.beacon.name message:@"didReceiveBeaconSighting" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 
     if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"]) && !(rssi < -70)) {
