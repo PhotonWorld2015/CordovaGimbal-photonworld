@@ -28,7 +28,7 @@
 
 - (void)placeManager:(GMBLPlaceManager *)manager didBeginVisit:(GMBLVisit *)visit
 {
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"]) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PHTNCHEBLK3"] ) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
@@ -43,7 +43,7 @@
 
 - (void)placeManager:(GMBLPlaceManager *)manager didEndVisit:(GMBLVisit *)visit
 {
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"]) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PHTNCHEBLK3"]) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
@@ -171,7 +171,7 @@
 - (void) displayWelcomeMsgAlert{
     
     UILocalNotification * notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Welcome to PhotonWorld 2015, enjoy the day with exciting speakers and attendees";
+    notification.alertBody = @"Welcome to PhotonWorld 2016, enjoy the day with exciting speakers and attendees";
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
