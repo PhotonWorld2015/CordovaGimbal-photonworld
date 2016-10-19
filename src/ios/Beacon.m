@@ -34,11 +34,11 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
         
-        if (![welcomMsgDisplayed isEqualToString:@"YES"]) {
+     //   if (![welcomMsgDisplayed isEqualToString:@"YES"]) {
             [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
             
             [self displayWelcomeMsgAlert];
-        }
+       // }
     }
 }
 
