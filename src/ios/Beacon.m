@@ -29,7 +29,7 @@
 - (void)placeManager:(GMBLPlaceManager *)manager didBeginVisit:(GMBLVisit *)visit
 {
       
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"] || [visit.place.name isEqualToString:@"PHTNCHEBLK3"] ) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"]) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
@@ -47,7 +47,7 @@
 //     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"didEndVisit" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //     [alert show];
     
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"] || [visit.place.name isEqualToString:@"PHTNCHEBLK3"]) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"]) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
