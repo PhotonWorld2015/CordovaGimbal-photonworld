@@ -83,7 +83,7 @@
     
     NSInteger rssi = sighting.RSSI;
     //NSLog(@"%zd",sighting.RSSI);
-    if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"PhotonCheBlock3-Visit"]) && !(rssi < -70)) {
+    if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"] || [sighting.beacon.name isEqualToString:@"PhotonCheBlock3-Visit"]) && !(rssi < -70)) {
         
         if (!self.checkInAlertDisplayed) {
             
