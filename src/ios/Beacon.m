@@ -29,7 +29,7 @@
 - (void)placeManager:(GMBLPlaceManager *)manager didBeginVisit:(GMBLVisit *)visit
 {
       
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"]) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Reception"]) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
@@ -47,7 +47,7 @@
 //     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"didEndVisit" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //     [alert show];
     
-    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Visit"]) {
+    if ([visit.place.name isEqualToString:@"Reception"] || [visit.place.name isEqualToString:@"OnsiteReception"] || [visit.place.name isEqualToString:@"PhotonCheBlock3-Reception"]) {
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
@@ -83,7 +83,7 @@
     
     NSInteger rssi = sighting.RSSI;
     //NSLog(@"%zd",sighting.RSSI);
-    if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"]) && !(rssi < -70)) {
+    if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"PhotonCheBlock3-Visit"]) && !(rssi < -70)) {
         
         if (!self.checkInAlertDisplayed) {
             
