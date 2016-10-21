@@ -34,11 +34,11 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
         
-     //   if (![welcomMsgDisplayed isEqualToString:@"YES"]) {
+       if (![welcomMsgDisplayed isEqualToString:@"YES"]) {
             [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
             
             [self displayWelcomeMsgAlert];
-       // }
+       }
     }
 }
 
@@ -52,10 +52,10 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
         
-//         if (![exitMsgDisplayed isEqualToString:@"YES"]) {
+        if (![exitMsgDisplayed isEqualToString:@"YES"]) {
             [defaults setObject:@"YES" forKey:@"ReceptionExit"];
             [self displayExitMsgAlert];
-//         }
+        }
     }
 }
 - (void)placeManager:(GMBLPlaceManager *)manager didReceiveBeaconSighting:(GMBLBeaconSighting *)sighting forVisits:(NSArray *)visits{
@@ -89,10 +89,10 @@
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *checkIn = [defaults objectForKey:@"CheckIn"];
-//             if ([checkIn isEqualToString:@"YES"]) {
-//                 self.checkInAlertDisplayed = YES;
-//                 return;
-//             }
+            if ([checkIn isEqualToString:@"YES"]) {
+                self.checkInAlertDisplayed = YES;
+                return;
+            }
             self.checkInAlertDisplayed = YES;
             [self displayCheckinAlert];
         }
