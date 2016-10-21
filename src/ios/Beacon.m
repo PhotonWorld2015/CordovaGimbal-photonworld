@@ -275,7 +275,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:@"YES" forKey:@"CheckIn"];
         
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Photon World" message:notification.alertBody delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Photon World" message:notification.alertBody delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         alert.tag = 111;
         [alert show];
         
