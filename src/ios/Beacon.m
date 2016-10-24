@@ -34,7 +34,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
         
-       if (![welcomMsgDisplayed isEqualToString:@"YES"]) {
+       if (![welcomMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDateAndTime]) {
             [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
             
             [self displayWelcomeMsgAlert];
@@ -52,7 +52,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
         
-        if (![exitMsgDisplayed isEqualToString:@"YES"]) {
+        if (![exitMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDateAndTime]) {
             [defaults setObject:@"YES" forKey:@"ReceptionExit"];
             [self displayExitMsgAlert];
         }
@@ -85,7 +85,7 @@
     //NSLog(@"%zd",sighting.RSSI);
     if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"] || [sighting.beacon.name isEqualToString:@"PhotonCheBlock3-Visit"]) && !(rssi < -70)) {
         
-        if (!self.checkInAlertDisplayed) {
+        if (!self.checkInAlertDisplayed && [self checkTargetDate]) {
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *checkIn = [defaults objectForKey:@"CheckIn"];
@@ -97,6 +97,58 @@
             [self displayCheckinAlert];
         }
     }
+}
+
+- (BOOL) checkTargetDate {
+    
+    BOOL IsValidDate;
+    
+    NSDate* currentDate = [NSDate date];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *currentDateComponents = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
+    
+    NSInteger day = [currentDateComponents day];
+    
+    NSInteger month = [currentDateComponents month];
+    
+    NSInteger year = [currentDateComponents year];
+    
+    if (day == 3 && month == 11 && year == 2016)
+        IsValidDate = true;
+    else
+        IsValidDate = false;
+    
+    return IsValidDate;
+    
+}
+
+- (BOOL) checkTargetDateAndTime {
+    
+    BOOL isValidDateAndTime;
+    
+    NSDate* currentDate = [NSDate date];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *currentDateComponents = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour  | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:currentDate];
+    
+    NSInteger hour = [currentDateComponents hour];
+    
+    NSInteger day = [currentDateComponents day];
+    
+    NSInteger month = [currentDateComponents month];
+    
+    NSInteger year = [currentDateComponents year];
+    
+    if (day == 3 && month == 11 && year == 2016 && hour >= 14)
+        isValidDateAndTime = true;
+    else
+        isValidDateAndTime = false;
+    
+    return isValidDateAndTime;
+    
 }
 
 #pragma mark - Cordova Methods
