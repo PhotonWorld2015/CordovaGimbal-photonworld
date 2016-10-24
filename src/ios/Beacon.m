@@ -34,7 +34,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *welcomMsgDisplayed = [defaults objectForKey:@"ReceptionEntry"];
         
-       if (![welcomMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDateAndTime]) {
+       if (![welcomMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDate]) {
             [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
             
             [self displayWelcomeMsgAlert];
@@ -52,7 +52,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *exitMsgDisplayed = [defaults objectForKey:@"ReceptionExit"];
         
-        if (![exitMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDateAndTime]) {
+     if (![exitMsgDisplayed isEqualToString:@"YES"] && [self checkTargetDateAndTime]) {
             [defaults setObject:@"YES" forKey:@"ReceptionExit"];
             [self displayExitMsgAlert];
         }
@@ -119,7 +119,7 @@
         IsValidDate = true;
     else
         IsValidDate = false;
-    
+     
     return IsValidDate;
     
 }
@@ -147,6 +147,8 @@
     else
         isValidDateAndTime = false;
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kEmpty message: [NSString stringWithFormat: @"Hour is %d --- %d", hour, isValidDateAndTime] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+     [alert show]; 
     return isValidDateAndTime;
     
 }
