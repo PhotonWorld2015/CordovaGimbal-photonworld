@@ -147,7 +147,7 @@
     else
         isValidDateAndTime = false;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kEmpty message: [NSString stringWithFormat: @"Hour is %d --- %d", hour, isValidDateAndTime] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"" message: [NSString stringWithFormat: @"Hour is %d --- %d", hour, isValidDateAndTime] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
      [alert show]; 
     return isValidDateAndTime;
     
