@@ -16,8 +16,8 @@
 @property (nonatomic) GMBLCommunicationManager *communicationManager;
 @property (assign) BOOL checkInAlertDisplayed;
 
-#define APPKEY "f0cf7a64-e588-4f52-ac8a-c80c8cc99163"//"238affd8-e704-4633-8384-91072edfa454"
-//#define APPKEY "055c3283-abe3-4a77-818c-dd398b793d52"
+#define APPKEY "f0cf7a64-e588-4f52-ac8a-c80c8cc99163"// ------> Test iOS ;; "238affd8-e704-4633-8384-91072edfa454" -----> Testing
+//#define APPKEY "2756f745-f710-4f11-9bc7-1203f858916b" ------> Production PW2016 ;;  055c3283-abe3-4a77-818c-dd398b793d52" ----> Production
 
 @end
 
