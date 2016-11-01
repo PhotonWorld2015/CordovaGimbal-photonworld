@@ -94,14 +94,20 @@
         
         if (!self.checkInAlertDisplayed) {
             
+            self.checkInAlertDisplayed = YES;
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *checkIn = [defaults objectForKey:@"CheckIn"];
+              
             if ([checkIn isEqualToString:@"YES"]) {
-                self.checkInAlertDisplayed = YES;
+                
                 return;
+                  
+            } else {
+                
+                   [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
+                   [self displayCheckinAlert];
             }
-            self.checkInAlertDisplayed = YES;
-            [self displayCheckinAlert];
+           
         }
     }
 }
