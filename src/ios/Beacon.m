@@ -92,22 +92,14 @@
     //NSLog(@"%zd",sighting.RSSI);
     if (([sighting.beacon.name isEqualToString:@"Check-in"] || [sighting.beacon.name isEqualToString:@"OnsiteCheckIn"] || [sighting.beacon.name isEqualToString:@"PhotonCheBlock3-Visit"]) && !(rssi < -70)) {
         
-        if (!self.checkInAlertDisplayed) {
+         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+         NSString *checkIn = [defaults objectForKey:@"CheckIn"];
+          
+        if (![checkIn isEqualToString:@"YES"]) {
             
-            self.checkInAlertDisplayed = YES;
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSString *checkIn = [defaults objectForKey:@"CheckIn"];
-              
-            if ([checkIn isEqualToString:@"YES"]) {
-                
-                return;
-                  
-            } else {
-                
-                   [defaults setObject:@"YES" forKey:@"ReceptionEntry"];
-                   [self displayCheckinAlert];
-            }
-           
+            [defaults setObject:@"YES" forKey:@"CheckIn"];
+            [self displayCheckinAlert];
+         
         }
     }
 }
