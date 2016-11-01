@@ -18,8 +18,8 @@
 
 //------->  2016
 
-//#define APPKEY "f0cf7a64-e588-4f52-ac8a-c80c8cc99163"// ------> LocalDevelopment iOS 2016
-#define APPKEY "2756f745-f710-4f11-9bc7-1203f858916b"// ------> Production iOS 2016
+#define APPKEY "f0cf7a64-e588-4f52-ac8a-c80c8cc99163"// ------> LocalDevelopment iOS 2016
+//#define APPKEY "2756f745-f710-4f11-9bc7-1203f858916b"// ------> Production iOS 2016
 
 //------->  2015
 
